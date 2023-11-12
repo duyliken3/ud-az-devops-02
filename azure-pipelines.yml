@@ -11,7 +11,7 @@ variables:
   azureServiceConnectionId: 'd155d7b7-4bdb-491e-8eb1-f13128a9d605'
   
   # Web app name
-  webAppName: 'udacity-flask-ml'
+  webAppName: 'ud-az-devops-02'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
