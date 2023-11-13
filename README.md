@@ -14,60 +14,125 @@ Apply Agile to manage project.
 ![](/images/ci-diagram.png)
 
 #### Project cloned into Azure Cloud Shell
+
 * Configuring Github - create a ssh key
 ```ssh
     ssh-keygen -t rsa -b 2048 -C "your-email@gmail.com"
 ```
 
 * Copy the public key to your GitHub Account -> Settings -> SSH and GPG keys
+
 ![](/images/config-ssh-key-github.png)
 
 * In Azure Cloud Shell, clone your repo:
+
 ```ssh
     git clone https://github.com/duyliken3/ud-az-devops-02.git
 ```
 ![](/images/git_checkout_into_auzre.png)
 
+* Checkout branch: feature/git-action
 
+```ssh
+    cd ud-az-devops-02
+    pwd
+    git checkout origin/feature/git-action
+```
 
+* Create virtual enviroment python
 
-
-
-
-### Architectural Diagram - Azure Devops pipeline
-![](/images/azure-devops.png)
-
-
-
-#### Project running on Azure App Service
-
+```ssh
+    python3 -m venv ~/.venv
+    source ~/.venv/bin/acitvate
+```
 
 * Passing tests that are displayed after running the `make all` command from the `Makefile`
 
-* Output of a test run
+![](/images/git_action_make_all.png)
 
-* Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
+* Github Action
 
-* Running Azure App Service from Azure Pipelines automatic deployment
+![](/images/github_actions.png)
 
-* Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
-The output should look similar to this:
 
-```bash
-udacity@Azure:~$ ./make_predict_azure_app.sh
-Port: 443
-{"prediction":[20.35373177134412]}
+### Architectural Diagram - Azure Devops pipeline
+![](/images/azure-devops_cd.png)
+
+* Checkout `main` branch
+
+```ssh
+    git checkout main
 ```
 
-* Output of streamed log files from deployed application
+* Passing tests that are displayed after running the `make all` command from the `Makefile`
 
-> 
+```ssh
+    make all
+```
+
+* Run app local on cloud shell
+
+```ssh
+    export FLASK_APP=app.py
+    flask run
+```
+
+* Call predict api in local
+
+```ssh
+    /.make_prediction.sh
+```
+
+![](images/mak_prediction.png)
+
+* In Azure Cloud Shell, run `commands.sh` create azure app service
+
+```ssh
+    /.commands.sh
+```
+
+![](images/azure_overview_webapp.png)
+
+* Setup azure devops piepline - https://dev.azure.com/  
+Create a new private project. ![](images/azure_devops_site.png)  
+Create a new service connection ![](images/service_connection.png)  
+Create a new pipeline base on `azure-pipelines.yml` ![](images/azure_pipelines.png)  
+
+
+* Check that the webapp is running opening his URL, example:
+```ssh
+    https://ud-az-devops-02.azurewebsites.net/
+```
+![](images/azure_webapp.png)
+
+* Update the file make_predict_azure_app.sh with the webapp service end point
+
+* Run `./make_predict_azure_app.sh`
+![](/images/make_predict_azure_app.png)
+
+* Log tail azure web app
+
+```ssh
+    az webapp log tail --name {webapp-name} --resource-group {resource-group-name}
+```
+![](/images/trail_log.png)
+
+* Loading Test, using Locust
+```ssh
+    ./loadingtest.sh
+```
+![](/images/locust.png)
+![](/images/loadingtest.png)
+
 
 ## Enhancements
 
-<TODO: A short description of how to improve the project in the future>
+* Updgrade new UI application
+* Implement Cricle CI
+* Traning new ML model
+* Add new test case for predict function
 
 ## Demo 
 
-<TODO: Add link Screencast on YouTube>
+Demo video
 
