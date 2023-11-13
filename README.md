@@ -7,6 +7,11 @@ Apply Agile to manage project.
 ## Project Plan
 * Trello's board: (https://trello.com/b/exRvPs3y/udacity-devops-planing)
 * Link to a spreadsheet: (https://docs.google.com/spreadsheets/d/1kxkROtY00z__KKVUVds86NM_9FsFyIEu0WNLHirhYOo/edit?usp=sharing)
+## Badge
+
+[![Python application test with Github Actions](https://github.com/duyliken3/ud-az-devops-02/actions/workflows/main_ud-az-devops-02.yml/badge.svg?branch=main)](https://github.com/duyliken3/ud-az-devops-02/actions/workflows/main_ud-az-devops-02.yml)  
+[![Build Status](https://dev.azure.com/duyliken2/Flask%20ML%20Application/_apis/build/status%2Fduyliken3.ud-az-devops-02?branchName=main)](https://dev.azure.com/duyliken2/Flask%20ML%20Application/_build/latest?definitionId=3&branchName=main)
+
 
 ## Instructions
 
