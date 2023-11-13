@@ -1,23 +1,46 @@
 # Overview
 
-<TODO: complete this with an overview of your project>
+In this project, you will build a Github repository from scratch and create a scaffolding that will assist you in performing both Continuous Integration and Continuous Delivery.  
+Apply code to perform an initial lint, test, and install cycle. Next, you'll integrate this project with Azure Pipelines to enable Continuous Delivery to Azure App Service.
+Apply Agile to manage project.  
 
 ## Project Plan
-<TODO: Project Plan
-
-* A link to a Trello board for the project
-* A link to a spreadsheet that includes the original and final project plan>
+* Trello's board: (https://trello.com/b/exRvPs3y/udacity-devops-planing)
+* Link to a spreadsheet: (https://docs.google.com/spreadsheets/d/1kxkROtY00z__KKVUVds86NM_9FsFyIEu0WNLHirhYOo/edit?usp=sharing)
 
 ## Instructions
 
-<TODO:  
-* Architectural Diagram (Shows how key parts of the system work)>
+### Architectural Diagram - GitHub Actions
+![](/images/ci-diagram.png)
 
-<TODO:  Instructions for running the Python project.  How could a user with no context run this project without asking you for any help.  Include screenshots with explicit steps to create that work. Be sure to at least include the following screenshots:
+#### Project cloned into Azure Cloud Shell
+* Configuring Github - create a ssh key
+```ssh
+    ssh-keygen -t rsa -b 2048 -C "your-email@gmail.com"
+```
 
-* Project running on Azure App Service
+* Copy the public key to your GitHub Account -> Settings -> SSH and GPG keys
+![](/images/config-ssh-key-github.png)
 
-* Project cloned into Azure Cloud Shell
+* In Azure Cloud Shell, clone your repo:
+```ssh
+    git clone https://github.com/duyliken3/ud-az-devops-02.git
+```
+![](/images/git_checkout_into_auzre.png)
+
+
+
+
+
+
+
+### Architectural Diagram - Azure Devops pipeline
+![](/images/azure-devops.png)
+
+
+
+#### Project running on Azure App Service
+
 
 * Passing tests that are displayed after running the `make all` command from the `Makefile`
 
